@@ -1,4 +1,5 @@
 import pandas as pd
+import numpy as np
 import matplotlib.pyplot as plt
 import seaborn as sns
 from sklearn.model_selection import train_test_split
@@ -14,7 +15,6 @@ df['hour'] = df['Formatted Date'].dt.hour
 # Add features corresponding to just the 1hr lag which appeared to be the most important
 df['temp_lag_1'] = df['Temperature (C)'].shift(1)
 
-
 # Drop rows with NaN in lag columns
 df = df.dropna()
 
@@ -26,10 +26,8 @@ y = df['Temperature (C)']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
 # Train model
-model = RandomForestRegressor(n_estimators=100, random_state=42)
+model = RandomForestRegressor(n_estimators=100,  min_samples_leaf=5, max_features='sqrt', random_state=42)
 model.fit(X_train, y_train)
-
-print(model.feature_importances_)
 
 # Predict
 y_pred = model.predict(X_test)
