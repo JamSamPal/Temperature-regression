@@ -1,7 +1,7 @@
 # Temperature-regression
 A regression analysis of temperature data to predict the next hour's temperature.
 
-This is an ongoing project that begins with a very simple model and then progresses to greater and greater complexity.
+This is an ongoing project that begins with a very simple model and then attempts to improve the RMSE
 
 - Our progress is seen by the improvement in the RMSE by changing the models labelled here as 1_, 2_, 3_, etc
 - We focus on the random forest model:
