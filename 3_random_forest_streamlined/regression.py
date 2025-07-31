@@ -11,16 +11,14 @@ df = pd.read_csv('./weatherHistory.csv')
 df['Formatted Date'] = pd.to_datetime(df['Formatted Date'], errors='coerce', utc=True)
 df['hour'] = df['Formatted Date'].dt.hour
 
-# Add features corresponding to lag
+# Add features corresponding to just the 1hr lag which appeared to be the most important
 df['temp_lag_1'] = df['Temperature (C)'].shift(1)
-df['temp_lag_6'] = df['Temperature (C)'].shift(6)
-df['temp_lag_12'] = df['Temperature (C)'].shift(12)
-df['temp_lag_24'] = df['Temperature (C)'].shift(24)
+
 
 # Drop rows with NaN in lag columns
 df = df.dropna()
 
-features = ['Humidity', 'Wind Speed (km/h)', 'temp_lag_24', 'temp_lag_12', 'temp_lag_6', 'temp_lag_1', 'hour']
+features = ['temp_lag_1', 'hour']
 X = df[features]
 y = df['Temperature (C)']
 
@@ -30,6 +28,8 @@ X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_
 # Train model
 model = RandomForestRegressor(n_estimators=100, random_state=42)
 model.fit(X_train, y_train)
+
+print(model.feature_importances_)
 
 # Predict
 y_pred = model.predict(X_test)
@@ -56,7 +56,3 @@ plt.show()
 rmse = root_mean_squared_error(y_test, y_pred)
 print(f"RMSE: {rmse:.2f}")
 
-# Feature importance
-# Most of the importances comes from the 1hr lag
-# followed by the hour
-print(model.feature_importances_)

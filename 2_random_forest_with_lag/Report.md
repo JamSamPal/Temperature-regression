@@ -25,7 +25,7 @@ The model is drastically more consistent than before
 ---
 
 ## Next Steps
-- Can we improve the RMSE further? And can we do that without any substantial increases to computation time?
+- Long computation time, can we achieve similar performance but more streamlined?
 
 ---
 
