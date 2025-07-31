@@ -1,7 +1,7 @@
 # Temperature Regression: Random Forest
 
 ## Model Training
-- Trained a Random Forest Regressor on selected features.
+- Trained a Random Forest Regressor on selected features - humidity and wind speed
 - Split data into training (80%) and testing (20%) sets.
 
 ---
@@ -23,9 +23,6 @@ The residual errors are roughly centered around zero so the training is not syst
 ---
 
 ## Next Steps
-- Experiment with different models to improve accuracy
-- Incorporate additional weather features
+- A clear next step would be to add additional features, like one corresponding to lagged temperature, e.g. the temperature at the same time on the previous day
 
 ---
-
-*Report generated on 2025-07-31*
