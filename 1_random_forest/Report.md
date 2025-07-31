@@ -1,7 +1,8 @@
 # Temperature Regression: Random Forest
 
 ## Model Training
-- Trained a Random Forest Regressor on selected features - humidity and wind speed
+- Random Forest Regressor with 100 trees and max depth 10.
+- Selected features - humidity and wind speed
 - Split data into training (80%) and testing (20%) sets.
 
 ---

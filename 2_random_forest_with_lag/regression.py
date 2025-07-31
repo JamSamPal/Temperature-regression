@@ -11,13 +11,16 @@ df = pd.read_csv('./weatherHistory.csv')
 df['Formatted Date'] = pd.to_datetime(df['Formatted Date'], errors='coerce', utc=True)
 df['hour'] = df['Formatted Date'].dt.hour
 
-# Add a feature corresponding to the temperature at the same time on the previous day
+# Add features corresponding to lag
+df['temp_lag_1'] = df['Temperature (C)'].shift(1)
+df['temp_lag_6'] = df['Temperature (C)'].shift(6)
+df['temp_lag_12'] = df['Temperature (C)'].shift(12)
 df['temp_lag_24'] = df['Temperature (C)'].shift(24)
 
 # Drop rows with NaN in lag columns
-df = df.dropna(subset=['temp_lag_24'])
+df = df.dropna()
 
-features = ['Humidity', 'Wind Speed (km/h)', 'temp_lag_24', 'hour']
+features = ['Humidity', 'Wind Speed (km/h)', 'temp_lag_24', 'temp_lag_12', 'temp_lag_6', 'temp_lag_1', 'hour']
 X = df[features]
 y = df['Temperature (C)']
 
