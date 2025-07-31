@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestRegressor
 from sklearn.metrics import root_mean_squared_error
 
 # Load weather data CSV
-df = pd.read_csv('weatherHistory.csv')
+df = pd.read_csv('./weatherHistory.csv')
 
 df['Formatted Date'] = pd.to_datetime(df['Formatted Date'], errors='coerce', utc=True)
 df['hour'] = df['Formatted Date'].dt.hour

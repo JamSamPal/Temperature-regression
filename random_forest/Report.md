@@ -1,16 +1,4 @@
-# Temperature Regression Project Report
-
-## Overview
-This project aims to predict temperature based on weather features using machine learning regression models.
-
----
-
-## Data Preprocessing
-- Dates converted to datetime with timezone handling.
-- Feature engineering ito extract hour and weather condition variables.
-- Data cleaned for missing or invalid entries.
-
----
+# Temperature Regression: Random Forest
 
 ## Model Training
 - Trained a Random Forest Regressor on selected features.
