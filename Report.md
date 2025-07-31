@@ -23,29 +23,20 @@ This project aims to predict temperature based on weather features using machine
 ### Actual vs Predicted Temperature
 ![Actual vs Predicted](actualvspredicted.png)
 
-The model predictions closely follow the actual temperature values over the test samples, showing good general performance.
+The model predictions deviate substantially from the actual temperature values over the test samples, showing poor performance.
 
 
 ### Error Distribution
 ![Error Distribution](errorspread.png)
 
-The residual errors are roughly centered around zero with a small spread, indicating the model is unbiased and fairly consistent.
-
-**Root Mean Squared Error (RMSE):** 2.35 (example value)
-
----
-
-## Interpretation of Errors
-- Mean error close to zero indicates minimal bias.
-- Error spread suggests most predictions are within ±3 degrees of actual temperature.
-- Few outliers exist, highlighting potential areas for model improvement.
+The residual errors are roughly centered around zero so the training is not systematically wrong but the data has a large spread, indicating the model is inconsistent.
+**Root Mean Squared Error (RMSE):** 7.62
 
 ---
 
 ## Next Steps
-- Incorporate additional weather features such as humidity and wind speed.
-- Experiment with boosting algorithms (XGBoost, LightGBM) for better accuracy.
-- Develop an interactive web app to demo predictions live.
+- Experiment with different models to improve accuracy
+- Incorporate additional weather features
 
 ---
 
